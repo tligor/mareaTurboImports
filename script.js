@@ -38,7 +38,19 @@ $(document).ready(function(){
         },
         invalidHandler: function(evento,validador){
             let camposIncorretos = validador.numberOfInvalids();
-            console.log(camposIncorretos);
+            if(camposIncorretos){
+                alert(`Existem ${camposIncorretos} campos incorretos`)
+            }
         }
+    })
+    $('.lista-veiculos button').click(function(){
+        const destino = $('#contato');
+        const nomeVeiculo = $(this).parent().find('h3').text();
+      
+        $('#car-buy').val(nomeVeiculo);
+
+        $('html').animate({
+            scrollTop: destino.offset().top
+        }, 1200)
     })
 })
